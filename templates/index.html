@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Document</title>
+		<meta name="robots" content="index, follow" />
+		<base target="_self" />
+		<meta name="description" content="" />
+		<meta name="author" content="Rocky Wu" />
+		<!-- <link rel="stylesheet" href="./style.css" /> -->
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+
+			header {
+				height: 20vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #223344;
+			}
+			header h1 {
+				color: white;
+				font-size: 3rem;
+			}
+			section {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			section h1 {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				height: 10vh;
+			}
+
+			section form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin: 1rem 0rem;
+			}
+
+			section form label {
+				font-size: 1.2rem;
+			}
+
+			section form input {
+				margin: 0.5rem 0.5rem;
+				padding: 0.5rem 0.5rem;
+			}
+
+			section form button {
+				padding: 0.5rem 0.75rem;
+				cursor: pointer;
+			} /*# sourceMappingURL=template.css.map */
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>歡迎光臨，請輸入帳號密碼</h1>
+		</header>
+		<section>
+			<h1>登入系統</h1>
+			<form action="/signin" method="POST">
+				<label>帳號</label>
+				<input
+					type="text"
+					id="username"
+					name="username"
+					placeholder="會員帳號"
+				/>
+
+				<label>密碼</label>
+				<input
+					type="password"
+					id="password"
+					name="password"
+					placeholder="會員密碼"
+				/>
+				<button type="submit">登入</button>
+			</form>
+
+			<hr />
+
+			<h1>計算正整數的平方</h1>
+			<form action="/square">
+				<label>正整數</label>
+				<input type="text" name="number" />
+				<button>計算</button>
+			</form>
+		</section>
+	</body>
+</html>
