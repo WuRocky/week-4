@@ -14,6 +14,7 @@ def index():
 
 @app.route("/signin",methods=['GET',"POST"])
 def signin():
+
   if request.method == 'POST':
     session["username"] = request.form["username"]
     session["password"] = request.form["password"]
@@ -25,7 +26,7 @@ def signin():
 
 @app.route("/member")
 def member():
-  if not session.get("username"):
+  if not session.get("username") or not session.get("password"):
     return  redirect("/")
   return render_template('member.html')
 
@@ -36,10 +37,13 @@ def logout():
 
 @app.route("/error")
 def error():
-  message=request.args.get("message","帳號、或密碼輸入錯誤")
-  message=str(message)
-  result =  message
-
+  if session["username"] == "" or session["password"] == "":
+    message=request.args.get("message","請輸入帳號、密碼")
+    result = message
+  else:
+    message=request.args.get("message","帳號、或密碼輸入錯誤")
+    result = message
+  session.pop('username', None)
   return render_template('error.html',data=result)
 
 @app.route("/square")
