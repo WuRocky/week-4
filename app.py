@@ -45,11 +45,18 @@ def error():
   session.pop('password', None)
   return render_template('error.html',message=data)
 
-@app.route("/square")
+@app.route("/square",methods=["POST"])
 def square():
-  mumber=request.args.get("number","")
-  mumber=int(mumber)
+  inputData=request.form["number"]
+  mumber=int(inputData)
   result = mumber ** 2
+  return render_template("square.html",data=result)
+
+
+@app.route("/square/<inputData>")
+def test(inputData):
+  test=int(inputData)
+  result = test ** 2
   return render_template("square.html",data=result)
 
 
