@@ -60,6 +60,7 @@ def square(urlData):
   return render_template("square.html",data=reuslt)
 
 
+
 #################test#########################
 # @app.route("/square",methods=["POST"])
 # def square():
