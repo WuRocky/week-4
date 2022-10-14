@@ -1,3 +1,4 @@
+from cgitb import reset
 from flask import Flask,render_template,url_for,request,redirect,session
 
 app=Flask(
@@ -45,19 +46,38 @@ def error():
   session.pop('password', None)
   return render_template('error.html',message=data)
 
-@app.route("/square",methods=["POST"])
-def square():
-  inputData=request.form["number"]
-  mumber=int(inputData)
-  result = mumber ** 2
-  return render_template("square.html",data=result)
+
+@app.route("/operation",methods=["POST"])
+def operation():
+  dataTest = request.form["number"]
+  return redirect(url_for('square',urlData=dataTest))
 
 
-@app.route("/square/<inputData>")
-def test(inputData):
-  test=int(inputData)
-  result = test ** 2
-  return render_template("square.html",data=result)
+@app.route("/square/<urlData>")
+def square(urlData):
+  test = int(urlData)
+  reuslt =test ** 2
+  return render_template("square.html",data=reuslt)
+
+
+#################test#########################
+# @app.route("/square",methods=["POST"])
+# def square():
+#   inputData=request.form["number"]
+#   mumber=int(inputData)
+#   result = mumber ** 2
+#   return render_template("square.html",data=result)
+
+
+
+# @app.route("/square/<data2>",methods=["POST"])
+# def square(data2):
+#   inputData=request.form["number"]
+#   mumber=int(inputData)
+#   result = mumber ** 2
+#   return render_template("square.html",data=result,data2=mumber)  
+
+
 
 
 if __name__ == "__main__": 
