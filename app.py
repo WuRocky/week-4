@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask,render_template,url_for,request,redirect,make_response
 import time
 
@@ -45,37 +46,12 @@ def error():
   res.set_cookie(key='cookiesPassword', value='', expires=0)
   return res
 
+@app.route("/square/<inputData>")
+def square(inputData):
+  squareData = int(inputData)
+  result= squareData ** 2
+  return render_template("square.html",data =result)
 
-@app.route("/operation",methods=["POST"])
-def operation():
-  dataTest = request.form["number"]
-  return redirect(url_for('square',urlData=dataTest))
-
-
-@app.route("/square/<urlData>")
-def square(urlData):
-  test = int(urlData)
-  reuslt =test ** 2
-  return render_template("square.html",data=reuslt)
-
-
-
-#################test#########################
-# @app.route("/square",methods=["POST"])
-# def square():
-#   inputData=request.form["number"]
-#   mumber=int(inputData)
-#   result = mumber ** 2
-#   return render_template("square.html",data=result)
-
-
-
-# @app.route("/square/<data2>",methods=["POST"])
-# def square(data2):
-#   inputData=request.form["number"]
-#   mumber=int(inputData)
-#   result = mumber ** 2
-#   return render_template("square.html",data=result,data2=mumber)  
 
 
 

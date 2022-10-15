@@ -91,11 +91,20 @@
 			<hr />
 
 			<h1>計算正整數的平方</h1>
-			<form action="/operation" method="POST">
+			<form>
 				<label>正整數</label>
-				<input type="text" name="number" />
-				<button>計算</button>
+				<input type="text" />
+				<button class="square" type="submit">計算</button>
 			</form>
 		</section>
 	</body>
+	<script>
+		let add = document.querySelector(".square");
+		add.addEventListener("click", (e) => {
+			e.preventDefault();
+			let form = e.target.parentElement;
+			let inputData = form.children[1].value;
+			window.location.href = "/square/" + inputData;
+		});
+	</script>
 </html>
