@@ -1,4 +1,3 @@
-from unittest import result
 from flask import Flask,render_template,url_for,request,redirect,make_response
 import time
 
