@@ -14,7 +14,7 @@ def index():
 
 @app.route("/signin",methods=["GET","POST"])
 def signin():
-  if request.method == 'POST':
+  if request.method == "POST":
     username = request.form["username"]
     password = request.form["password"]
     if username=="test" and password=="test":
