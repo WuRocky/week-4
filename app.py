@@ -12,7 +12,7 @@ app=Flask(
 def index():
   return render_template('index.html')
 
-@app.route("/signin",methods=['GET',"POST"])
+@app.route("/signin",methods=["GET","POST"])
 def signin():
   if request.method == 'POST':
     username = request.form["username"]
